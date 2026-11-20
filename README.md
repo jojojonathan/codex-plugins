@@ -26,6 +26,18 @@ codex plugin add tencent-docs@jonathan-plugins
 
 在新的 Codex 会话中提供有权访问的腾讯文档链接，例如「用腾讯文档总结这份文档的要点」。
 
+## 安装 Next AI Draw.io
+
+在运行 Codex 的环境中准备 Node.js 18 或更高版本，并确认 `npx --version` 可用。插件通过 `npx -y @next-ai-drawio/mcp-server@latest` 启动绘图服务。首次运行需要联网下载，Codex 最多等待 60 秒启动服务。[上游使用说明](https://github.com/DayuanJiang/next-ai-draw-io/tree/main/packages/mcp-server#readme)
+
+首次使用此市场时运行 `codex plugin marketplace add jojojonathan/codex-plugins`；已添加市场时运行 `codex plugin marketplace upgrade jonathan-plugins`。然后安装插件：
+
+```sh
+codex plugin add next-ai-drawio@jonathan-plugins
+```
+
+在新的 Codex 会话中试试「用 draw.io 画出当前项目的架构图」。你可以在浏览器中预览和编辑图表，也可以让 Codex 导出 `.drawio` 文件。
+
 ## 添加插件
 
 将插件放入 `plugins/<插件名>/`，在插件清单中填写名称、版本和说明。CodeGraph 使用 Codex 格式，由 `.codex-plugin/plugin.json` 引用插件根目录的 `.mcp.json`。最后在市场清单中登记插件，将 `source.path` 设为相对仓库根目录的 `./plugins/<插件名>`。[市场清单](.agents/plugins/marketplace.json) · [OpenAI 插件打包规范](https://developers.openai.com/plugins/build/plugins)
