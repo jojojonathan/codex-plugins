@@ -1,0 +1,20 @@
+{
+  "name": "tencent-docs",
+  "version": "0.1.0",
+  "description": "通过腾讯文档 MCP 服务在 Codex 中访问已授权的在线文档。",
+  "author": {
+    "name": "jojojonathan"
+  },
+  "repository": "https://github.com/jojojonathan/codex-plugins",
+  "homepage": "https://docs.qq.com/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "腾讯文档",
+    "shortDescription": "在 Codex 中访问已授权的腾讯文档",
+    "developerName": "jojojonathan",
+    "category": "Productivity",
+    "defaultPrompt": [
+      "用腾讯文档总结我提供的文档链接。"
+    ]
+  }
+}

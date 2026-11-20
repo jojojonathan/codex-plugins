@@ -14,6 +14,18 @@ CodeGraph 让 Codex 从本地项目索引中查找符号、追踪调用关系并
 
 3. 进入想要分析的项目根目录，执行一次 `codegraph init` 建立索引。随后在该目录打开新的 Codex 会话，例如问「用 CodeGraph 找出谁调用了 `handleRequest`」，并将函数名换成项目中的实际符号。
 
+## 安装腾讯文档
+
+在运行 Codex 的环境中设置 `TENCENT_DOCS_TOKEN`，值为腾讯文档签发的原始令牌。插件会自动加上 `Bearer` 前缀。Windows 桌面端可在「用户环境变量」中设置后重新启动 Codex；使用 WSL 运行 Codex CLI 时，在对应的 Linux 环境中设置。
+
+首次使用此市场时运行 `codex plugin marketplace add jojojonathan/codex-plugins`。已添加市场时，运行 `codex plugin marketplace upgrade jonathan-plugins` 刷新插件列表。然后安装插件：
+
+```sh
+codex plugin add tencent-docs@jonathan-plugins
+```
+
+在新的 Codex 会话中提供有权访问的腾讯文档链接，例如「用腾讯文档总结这份文档的要点」。
+
 ## 添加插件
 
 将插件放入 `plugins/<插件名>/`，在插件清单中填写名称、版本和说明。CodeGraph 使用 Codex 格式，由 `.codex-plugin/plugin.json` 引用插件根目录的 `.mcp.json`。最后在市场清单中登记插件，将 `source.path` 设为相对仓库根目录的 `./plugins/<插件名>`。[市场清单](.agents/plugins/marketplace.json) · [OpenAI 插件打包规范](https://developers.openai.com/plugins/build/plugins)
