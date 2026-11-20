@@ -2,7 +2,7 @@
 
 ## 安装 CodeGraph
 
-CodeGraph 让 Codex 从本地项目索引中查找符号、追踪调用关系并分析改动影响。插件使用当前环境 `PATH` 中的 `codegraph` 启动 MCP 服务。[CodeGraph 上游项目](https://github.com/colbymchenry/codegraph)
+CodeGraph 让 Codex 从本地项目索引中查找符号、追踪调用关系并分析改动影响。插件使用当前环境 `PATH` 中的 `codegraph` 启动 MCP 服务。服务启动和单次工具调用的超时均为 30 秒。[CodeGraph 上游项目](https://github.com/colbymchenry/codegraph)
 
 1. 在运行 Codex 的环境中执行 `codegraph --version`。如果还未安装，可使用 `npm install -g @colbymchenry/codegraph`，也可使用上游提供的平台安装包。使用 WSL 运行 Codex 时，在对应的 Linux 发行版中执行这一步。
 2. 在已获得此 GitHub 仓库读取权限的环境中添加市场并安装插件。
@@ -16,4 +16,4 @@ CodeGraph 让 Codex 从本地项目索引中查找符号、追踪调用关系并
 
 ## 添加插件
 
-将插件放入 `plugins/<插件名>/`，在插件根目录的 `plugin.json` 中填写名称、版本和说明。提供 MCP 服务时，在同目录的 `mcp.json` 中声明启动方式。最后在市场清单中登记插件，将 `source.path` 设为相对仓库根目录的 `./plugins/<插件名>`。[市场清单](.agents/plugins/marketplace.json) · [OpenAI 插件打包规范](https://developers.openai.com/plugins/build/plugins)
+将插件放入 `plugins/<插件名>/`，在插件清单中填写名称、版本和说明。CodeGraph 使用 Codex 格式，由 `.codex-plugin/plugin.json` 引用插件根目录的 `.mcp.json`。最后在市场清单中登记插件，将 `source.path` 设为相对仓库根目录的 `./plugins/<插件名>`。[市场清单](.agents/plugins/marketplace.json) · [OpenAI 插件打包规范](https://developers.openai.com/plugins/build/plugins)

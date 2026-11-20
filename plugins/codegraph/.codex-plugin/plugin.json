@@ -1,0 +1,20 @@
+{
+  "name": "codegraph",
+  "version": "0.1.1",
+  "description": "在 Codex 中查询本地 CodeGraph 索引，查找符号、追踪调用关系并分析改动影响。",
+  "author": {
+    "name": "jojojonathan"
+  },
+  "repository": "https://github.com/jojojonathan/codex-plugins",
+  "homepage": "https://github.com/colbymchenry/codegraph",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "CodeGraph",
+    "shortDescription": "查询本地代码索引，追踪符号与调用关系",
+    "developerName": "jojojonathan",
+    "category": "Developer Tools",
+    "defaultPrompt": [
+      "用 CodeGraph 找出当前项目的入口，并解释主要调用链。"
+    ]
+  }
+}
